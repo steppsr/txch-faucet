@@ -165,7 +165,7 @@ $mojo = sprintf("%.0f",$txch * 1000000000000 );
 				<p class='title'>Give TXCH</p>
 				<p>If you have TXCH you are willing to give to a developer to use while building new cool stuff. Here is the address of the faucet wallet for donations:</p>
 				<pre class='highlight'>txch15ef455n0529w57gcc46gtx3xdawyjf8hazrvfne2vfahxr2un5rq3l478h</pre>
-				<i>This faucet is for TESTNET only. Do not send XCH to the dev faucet wallet. It is not a valid Chia wallet. Only send TXCH from a TESTNET wallet.</i>
+				<i>This faucet is for TESTNET only. Only send TXCH from a TESTNET wallet.</i>
 				<p>Can you use the GUI or here is <u>How to send some TXCH from the CLI</u><br>
 				<pre class='highlight'>chia wallet send -f your_fingerprint -i wallet_id -a your_amount -e "your_memo" -m 0.000000000001 -t send_to_address -o</pre>
 				You should be able to use 1 mojo for a fee on TESTNET. &nbsp;&nbsp; -o says override unusual amount and send anyway.</p>
