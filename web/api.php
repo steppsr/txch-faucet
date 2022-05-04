@@ -2,9 +2,6 @@
 /*                                                                                                                                  	.
  * XCH Dev Faucet API																													.
  *																																		.
- * Be sure to hash the API key, we don't want to store the API key on the server.														.
- * Need to figure out how to convert this to a POST API and not GET. We don't want the API Key or it's Hash sent over GET.				.
- *																																	    .
  * Sample endpoint calls																												.
  * ---------------------																												.
  * curl -s -X POST -H "API-KEY: api_key_for_access" "https://xchdev.com/faucet/api/get_transactions"									.
