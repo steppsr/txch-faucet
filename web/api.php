@@ -9,6 +9,14 @@
  * curl -s -X POST -H "API-KEY: api_key_for_access" "http://xchdev.com/faucet/api/set_balance/450.000"									.
  *																																	   */
 
+// Be sure to change the PREFIX to a value you make up. You will also need to make up an "API-KEY".
+// The PREFIX and API-KEY are then joined together will a period in between and the result sha256 hashed
+// to come up with the HASHED KEY below. Requests to this API will need to include a Header with the
+// API-KEY. That given key will then be verified against this HASHED_KEY to ensure a valid API-KEY was
+// given.
+
+// Example:    sha256(PREFIX . "." . APIKEY)  should equal HASHED_KEY
+
 DEFINE("PREFIX","19752156061");
 DEFINE("HASHED_KEY","c99356adac1a2239e8a4a427ae0da1fbf5decc3f43d7b9e27f447944fdaa23dc");
 $error_msg = "";
