@@ -1,0 +1,18 @@
+# Turn on the rewriting engine
+RewriteEngine On
+
+# This will allow us to use a nicer URL to call the API. This rewrite rule will parse
+# the URL into a request (or action), name, and value. Then create the GET URL for our 
+# dashboard. We use this rule for setting the value of a column in the database.
+# A typical call will look like this:
+#   https://xchdev.com/faucet/api/requestname
+#   https://xchdev.com/faucet/api/requestname/value
+#
+# Real example: https://xchdev.com/faucet/api/getrequests
+# Real example: https://xchdev.com/faucet/api/setbalance/300.25
+#
+RewriteRule ^(.*)/(.*)/(.*)$ $1.php?req=$2&val=$3 [NC,L]
+
+# This rewrite rule is very similar but will just take a request and a name. We use
+# this rule to get a value from the database.
+RewriteRule ^(.*)/(.*)$ $1.php?req=$2
