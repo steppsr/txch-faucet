@@ -146,7 +146,7 @@ $mojo = sprintf("%.0f",$txch * 1000000000000 );
 				<br>You can get TXCH <span class='strike'>once a day.</span> <?=MAX_REQUESTS?> times a day. <sup class='limited'>Limited time</sup></p>
 				<form action="" method="POST">
 				<input type='text' name='sendto-address' value='' placeholder='Your TESTNET Wallet Receive Address' size='64'>&nbsp;&nbsp;</input>
-				<input type='submit' name='submit'></input>
+				<input type='submit' name='submit' value='Submit'></input><br>
 				<?= $_SESSION['msg']; ?>
 			</div> <!-- get -->
 
