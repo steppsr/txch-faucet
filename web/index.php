@@ -77,7 +77,7 @@ if(isset($_POST['submit']) && $_POST['submit'] === 'Submit' && $_POST['sendto-ad
 						$user_message = APOLOGY . " " . SUBMITTED_MSG;
 					} else {
 							$fp = fopen('/var/www/xchdev.com/public_html/faucet/requests.php','a'); // open file in append mode
-							fwrite($fp, "$ip $sendto\n");
+							fwrite($fp, "$ip $sendto " . date("Y-m-d H:i:s") . "\n");
 							fclose($fp);
 							$user_message = REQUEST_ACCEPTED;
 					}
