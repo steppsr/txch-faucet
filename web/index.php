@@ -72,10 +72,15 @@ if(isset($_POST['submit']) && $_POST['submit'] === 'Submit' && $_POST['sendto-ad
 			    {
 			        $user_message = APOLOGY . " " . SUBMITTED_MSG;
 			    } else {
-					$fp = fopen('/var/www/xchdev.com/public_html/faucet/requests.php','a'); // open file in append mode
-					fwrite($fp, "$ip $sendto\n");
-					fclose($fp);
-					$user_message = REQUEST_ACCEPTED;
+					if( exec("grep " . escapeshellarg($sendto) . " ./requests.php | wc -l") + exec("grep " . escapeshellarg($sendto) . " ./today.php | wc -l") >= MAX_REQUESTS )
+					{
+						$user_message = APOLOGY . " " . SUBMITTED_MSG;
+					} else {
+							$fp = fopen('/var/www/xchdev.com/public_html/faucet/requests.php','a'); // open file in append mode
+							fwrite($fp, "$ip $sendto\n");
+							fclose($fp);
+							$user_message = REQUEST_ACCEPTED;
+					}
 			    }
 			}
 		} else {
