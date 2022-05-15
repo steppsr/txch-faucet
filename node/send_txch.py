@@ -8,12 +8,13 @@ urllib3.disable_warnings()
 PAYOUT_AMOUNT = 20000000000000
 PAYOUT_FEE = 1
 
-# post balance to xchdev faucet 
+# get the list of addresses who have made requests since our run through the script
 url = "https://xchdev.com/faucet/api/getrequests/"
 headers = {'API-KEY':'4aif*F3tnr#JhCf#9FUJ*OZUAg^7de1GcOpC*G&PsHROQne5I4FScCnX1xw6%7@A'}
 results = requests.post(url, data={}, headers=headers)
 response = json.loads(results.text)
 
+# loop through the addresses and send each the payout amount
 for sendto in response['data']:
 
     # call chia rpc api to send to each address
@@ -22,3 +23,5 @@ for sendto in response['data']:
     data = '{"wallet_id":1,"address":"' + sendto + '","amount":' + str(PAYOUT_AMOUNT) + ',"fee":' + str(PAYOUT_FEE) + ',"memos":"XCHDEV_FAUCET"}'
     cert = ("c:\\users\\steve\\.chia\\mainnet\\config\\ssl\\wallet\\private_wallet.crt", "c:\\users\\steve\\.chia\\mainnet\\config\\ssl\\wallet\\private_wallet.key")
     response = json.loads(requests.post(url, data=data, headers=headers, cert=cert, verify=False).text)
+
+exit

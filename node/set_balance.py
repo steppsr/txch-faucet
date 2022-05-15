@@ -12,7 +12,6 @@ cert = ("c:\\users\\steve\\.chia\\mainnet\\config\\ssl\\wallet\\private_wallet.c
 response = json.loads(requests.post(url, data=data, headers=headers, cert=cert, verify=False).text)
 bal = response['wallet_balance']['confirmed_wallet_balance'] / 1000000000000
 
-
 # post balance to xchdev faucet 
 url = "https://xchdev.com/faucet/api/setbalance/" + str(bal)
 headers = {'API-KEY':'4aif*F3tnr#JhCf#9FUJ*OZUAg^7de1GcOpC*G&PsHROQne5I4FScCnX1xw6%7@A'}
